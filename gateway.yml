@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8079
 
 spring:
   application:
@@ -7,14 +7,6 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: api-movie
-          uri: lb://api-movie
-          predicates:
-            - Path=/api/v1/movies/**
-        - id: api-serie
-          uri: lb://api-serie
-          predicates:
-            - Path=/api/v1/series/**
         - id: api-catalog
           uri: lb://api-catalog
           predicates:
