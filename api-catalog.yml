@@ -8,7 +8,7 @@ spring:
       username: usr-mongo
       password: pwd-mongo
       database: dev-mongo
-      port: 27017
+      port: 27018
       host: localhost
 
 eureka:
