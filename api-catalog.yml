@@ -3,12 +3,6 @@ server:
 spring:
   application:
     name: api-catalog
-  cloud:
-    openfeign:
-        circuitbreaker:
-          enabled: true
-          alphanumeric-ids:
-            enabled: true
   data:
     mongodb:
       username: usr-mongo
@@ -30,20 +24,11 @@ eureka:
 resilience4j.circuitbreaker:
   instances:
     clientSerie:
+      allowHealthIndicatorToFail: false
       registerHealthIndicator: true
-      slidingWindowSize: 10
-      permittedNumberOfCallsInHalfOpenState: 3
       slidingWindowType: COUNT_BASED
-      minimumNumberOfCalls: 20
-      waitDurationInOpenState: 50s
+      slidingWindowSize: 5
       failureRateThreshold: 50
-      eventConsumerBufferSize: 10
-    clientMovie:
-      registerHealthIndicator: true
-      slidingWindowSize: 10
+      waitDurationInOpenState: 15000
       permittedNumberOfCallsInHalfOpenState: 3
-      slidingWindowType: COUNT_BASED
-      minimumNumberOfCalls: 20
-      waitDurationInOpenState: 50s
-      failureRateThreshold: 50
-      eventConsumerBufferSize: 10
+      automaticTransitionFromOpenToHalfOpenEnabled: true
