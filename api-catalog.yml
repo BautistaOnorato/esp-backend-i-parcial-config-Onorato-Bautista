@@ -1,6 +1,6 @@
 server:
   port: ${PORT:${SERVER_PORT:0}}
-  
+
 spring:
   application:
     name: api-catalog
@@ -11,10 +11,6 @@ spring:
       database: dev-mongo
       port: 27017
       host: localhost
-  cloud:
-    openfeign:
-      circuitbreaker:
-        enabled: true
 
 eureka:
   instance:
