@@ -11,6 +11,10 @@ spring:
       port: 27017
       host: localhost
 
+feign:
+  circuitbreaker:
+    enabled: true
+
 eureka:
   instance:
     hostname: localhost
@@ -21,14 +25,18 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-resilience4j.circuitbreaker:
-  instances:
-    clientSerie:
-      allowHealthIndicatorToFail: false
-      registerHealthIndicator: true
-      slidingWindowType: COUNT_BASED
-      slidingWindowSize: 5
-      failureRateThreshold: 50
-      waitDurationInOpenState: 15000
-      permittedNumberOfCallsInHalfOpenState: 3
-      automaticTransitionFromOpenToHalfOpenEnabled: true
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        allow-health-indicator-to-fail: false
+        register-health-indicator: true
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 3s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+    instances:
+      serie-service:
+        base-config: default
