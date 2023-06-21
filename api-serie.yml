@@ -11,13 +11,13 @@ spring:
     password: guest
     host: localhost
     port: 5672
+  mongodb:
+    embedded:
+      version: 4.0.2
   data:
     mongodb:
-      username: usr-mongo
-      password: pwd-mongo
-      database: dev-mongo
+      database: test
       port: 27017
-      host: localhost
 
 eureka:
   instance:
