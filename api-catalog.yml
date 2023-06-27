@@ -17,7 +17,7 @@ spring:
   data:
     mongodb:
       database: catalog-db
-      port: 27018
+      port: 27019
 
 eureka:
   instance:
