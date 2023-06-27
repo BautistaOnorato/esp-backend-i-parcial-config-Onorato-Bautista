@@ -16,8 +16,8 @@ spring:
       version: 4.0.2
   data:
     mongodb:
-      database: serie
-      port: 27017
+      database: serie-db
+      port: 27018
 
 eureka:
   instance:

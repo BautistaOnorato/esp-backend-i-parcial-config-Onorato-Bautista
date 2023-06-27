@@ -16,8 +16,8 @@ spring:
       version: 4.0.2
   data:
     mongodb:
-      database: catalog
-      port: 27017
+      database: catalog-db
+      port: 27018
 
 eureka:
   instance:
